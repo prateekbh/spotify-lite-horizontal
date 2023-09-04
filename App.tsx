@@ -34,7 +34,7 @@ import {
 
 const spotifyConfig: ApiConfig = {
   clientID: "608fc13e3bd647eba6f72859b20bea93",
-  redirectURL: "https://prateekbh.dev",
+  redirectURL: "spotify-horizontal-remote://spotify-login-callback",
   scopes: [ApiScope.AppRemoteControlScope, ApiScope.UserFollowReadScope],
 };
 
@@ -72,7 +72,11 @@ function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   useEffect(() => {
-    SpotifyAuth.authorize(spotifyConfig);
+    SpotifyAuth.authorize(spotifyConfig).then((result) => {
+      console.log("=========================", result)
+    }).catch((err) => {
+      console.log(err)
+    });
   }, []);
 
   const backgroundStyle = {
