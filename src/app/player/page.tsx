@@ -34,9 +34,9 @@ export default function Player() {
                 </div>
             </div>
             <div className={style.controls}>
-                <button className={style.prev}><img src={previousIcon.src} width="100%" height="100%"/></button>
-                <button className={style.playpause}><img src={pauseIcon.src} width="100%" height="100%"/></button>
-                <button className={style.next}><img src={nextIcon.src} width="100%" height="100%"/></button>
+                <button className={style.prev}><img src={previousIcon.src} width="60%" height="60%"/></button>
+                <button className={style.playpause}><img src={pauseIcon.src} width="60%" height="60%"/></button>
+                <button className={style.next}><img src={nextIcon.src} width="60%" height="60%"/></button>
             </div>
         </div>
     </div>);

@@ -23,27 +23,36 @@
     flex-direction: row;
 }
 
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
 .playpause, .prev, .next {
     border-radius: 50%;
     border: 0px;
     background-color: rgba(255,255,255,0.4);
     padding: 8px;
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     vertical-align: middle;
 }
 
 .prev, .next {
-    margin: 0 16px;
-    height: 30px;
-    width: 30px;
+    background-color: transparent;
+    margin: 0 32px;
+    height: 60px;
+    width: 60px;
 }
 
 .trackInfo {
     justify-content: end;
     display: flex;
     flex-direction: column;
-    padding-left: 16px;;
+    padding-left: 16px;
 }
 
 .trackName {
@@ -54,11 +63,4 @@
 .artistName {
     font-weight: 100;
     font-size: 1.5em;
-}
-
-.controls {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
