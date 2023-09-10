@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Fira_Sans } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const fira = Fira_Sans({ subsets: ['latin'], weight: "500" })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +19,7 @@ export default function RootLayout({
         <head>
           <link rel="manifest" href="/manifest.json" />
         </head>
-        <body className={inter.className}>{children}</body>
+        <body className={fira.className}>{children}</body>
     </html>
   )
 }

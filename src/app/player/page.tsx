@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react"
 import { dummyResponse } from "./dummyResponse";
+import { Fira_Sans_Condensed } from 'next/font/google'
 
 import pauseIcon from "../../../public/pause.png";
 import playIcon from "../../../public/play.png";
@@ -8,6 +9,8 @@ import previousIcon from "../../../public/previous.png";
 import nextIcon from "../../../public/next.png";
 
 import style from "./page.module.css"
+
+const firaSansCondensed = Fira_Sans_Condensed({ subsets: ['latin'], weight: "100", style:"normal" })
 
 export default function Player() {
     const [playerState, setPlayerState] = useState(dummyResponse);
@@ -30,7 +33,7 @@ export default function Player() {
                 </div>
                 <div className={style.trackInfo}>
                     <div className={style.trackName}>{playerState.item.name}</div>
-                    <div className={style.artistName}>{playerState.item.artists.map(artist=> artist.name).join(", ")}</div>
+                    <div className={`${style.artistName} ${firaSansCondensed.className}`}>{playerState.item.artists.map(artist=> artist.name).join(", ")}</div>
                 </div>
             </div>
             <div className={style.controls}>
