@@ -1,0 +1,26 @@
+.artistImage {
+    position: absolute;
+    z-index: 0;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.dock {
+    position: absolute;
+    z-index: 1;
+    bottom: 150px;
+    left: 50px;
+}
+
+.playpause {
+    border-radius: 50%;
+    border: 0px;
+    background-color: rgba(255,255,255,0.4);
+    padding: 8px;
+    height: 50px;
+    width: 50px;
+}
