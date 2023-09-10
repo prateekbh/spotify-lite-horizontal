@@ -3,6 +3,9 @@ import { useEffect, useState } from "react"
 import { dummyResponse } from "./dummyResponse";
 
 import pauseIcon from "../../../public/pause.png";
+import playIcon from "../../../public/play.png";
+import previousIcon from "../../../public/previous.png";
+import nextIcon from "../../../public/next.png";
 
 import style from "./page.module.css"
 
@@ -23,9 +26,9 @@ export default function Player() {
         <div className={style.dock}>
             <img src={playerState.item.album.images.find(img => img.height === 640)?.url} className={style.albumart} width={200} height={200} />
             <div className={style.controls}>
-                <button className={style.prev}></button>
+                <button className={style.prev}><img src={previousIcon.src} width="100%" height="100%"/></button>
                 <button className={style.playpause}><img src={pauseIcon.src} width="100%" height="100%"/></button>
-                <button className={style.next}></button>
+                <button className={style.next}><img src={nextIcon.src} width="100%" height="100%"/></button>
             </div>
         </div>
     </div>);

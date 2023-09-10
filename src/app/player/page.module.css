@@ -16,11 +16,18 @@
     left: 50px;
 }
 
-.playpause {
+.playpause, .prev, .next {
     border-radius: 50%;
     border: 0px;
     background-color: rgba(255,255,255,0.4);
     padding: 8px;
     height: 50px;
     width: 50px;
+    vertical-align: middle;
+}
+
+.prev, .next {
+    margin: 0 16px;
+    height: 30px;
+    width: 30px;
 }
