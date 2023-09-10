@@ -13,7 +13,7 @@
 .dock {
     position: absolute;
     z-index: 1;
-    bottom: 130px;
+    bottom: 50px;
     left: 50px;
     right: 50px;
 }
