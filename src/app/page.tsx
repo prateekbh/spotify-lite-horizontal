@@ -1,13 +1,13 @@
 
 import styles from './page.module.css'
-import link from "next/link";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div>
       hello
       <div>
-        <link href='/player'> PLayer</link>
+        <Link href='/player'> PLayer</Link>
       </div>
     </div>
   )
