@@ -13,8 +13,12 @@
 .dock {
     position: absolute;
     z-index: 1;
-    bottom: 80px;
+    bottom: 130px;
     left: 50px;
+    right: 50px;
+}
+
+.info {
     display: flex;
     flex-direction: row;
 }
@@ -50,4 +54,11 @@
 .artistName {
     font-weight: 100;
     font-size: 1.5em;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
