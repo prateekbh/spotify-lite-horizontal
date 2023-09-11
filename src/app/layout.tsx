@@ -1,5 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import { SessionProvider } from "next-auth/react"
 import { Fira_Sans } from 'next/font/google'
 
 const fira = Fira_Sans({ subsets: ['latin'], weight: "500" })
@@ -19,7 +20,9 @@ export default function RootLayout({
         <head>
           <link rel="manifest" href="/manifest.json" />
         </head>
-        <body className={fira.className}>{children}</body>
+        <SessionProvider session={session}>
+          <body className={fira.className}>{children}</body>
+        </SessionProvider>
     </html>
   )
 }
