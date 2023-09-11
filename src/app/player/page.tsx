@@ -21,6 +21,9 @@ const firaSansCondensed = Fira_Sans_Condensed({
 
 export default function Player() {
   const [playerState, setPlayerState] = useState(dummyResponse);
+  const togglePlayPause = () => {
+    setPlayerState({ ...playerState, is_playing: !playerState.is_playing });
+  };
   useEffect(() => {
     const timer = setInterval(() => {});
     return () => {
@@ -38,14 +41,30 @@ export default function Player() {
       <div className={style.dock}>
         <div className={style.info}>
           <div className={style.thumbnail}>
-            <Image className={style.vinyl} alt="vinyl record" src={vinyl} width={200} height={200} />
-            <Image className={style.arm} alt="turn table arm" src={arm} width={200} height={200} />
+            <Image
+              className={style.vinyl}
+              alt="vinyl record"
+              src={vinyl}
+              width={200}
+              height={200}
+            />
+            <Image
+              className={`${style.arm} ${
+                !!playerState.is_playing ? "" : style.paused
+              }`}
+              alt="turn table arm"
+              src={arm}
+              width={200}
+              height={200}
+            />
             <img
               src={
                 playerState.item.album.images.find((img) => img.height === 640)
                   ?.url
               }
-              className={style.albumart}
+              className={`${style.albumart} ${
+                playerState.is_playing ? style.playing : ""
+              }`}
               width={200}
               height={200}
             />
@@ -63,7 +82,7 @@ export default function Player() {
           <button className={style.prev}>
             <img src={previousIcon.src} width="60%" height="60%" />
           </button>
-          <button className={style.playpause}>
+          <button className={style.playpause} onClick={togglePlayPause}>
             <img
               src={playerState.is_playing ? pauseIcon.src : playIcon.src}
               width="60%"

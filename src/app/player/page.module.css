@@ -23,6 +23,15 @@
     left: 130px;
     top: -8px;
     height: 113px;
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    transform: rotate(0deg);
+    transform-origin: top right;
+}
+
+.arm.paused {
+    transform: rotate(-35deg);
 }
 
 .vinyl {
@@ -41,7 +50,14 @@
     animation-name: vinyl-rotate;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
+    animation-play-state: paused;
+    animation-timing-function: ease-out;
+}
+
+.albumart.playing {
+    animation-play-state: running;
     animation-timing-function: linear;
+    
 }
 
 .dock {
@@ -86,7 +102,7 @@
     justify-content: end;
     display: flex;
     flex-direction: column;
-    padding-left: 16px;
+    padding-left: 32px;
     padding-bottom: 8px;
 }
 
