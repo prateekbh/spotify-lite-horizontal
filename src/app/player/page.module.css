@@ -27,11 +27,12 @@
     transition-duration: 300ms;
     transition-timing-function: ease-out;
     transform: rotate(0deg);
-    transform-origin: top right;
+    transform-origin: 80px 30px;
+    filter: grayscale(1) contrast(2);
 }
 
 .arm.paused {
-    transform: rotate(-35deg);
+    transform: rotate(-50deg);
 }
 
 .vinyl {
