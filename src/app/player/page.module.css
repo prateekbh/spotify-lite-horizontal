@@ -18,16 +18,16 @@
 .arm {
     color: transparent;
     position: absolute;
-    width: 100px;
+    width: 79px;
     z-index: 2;
     left: 130px;
     top: -8px;
-    height: 113px;
+    height: 100px;
     transition-property: transform;
     transition-duration: 300ms;
     transition-timing-function: ease-out;
     transform: rotate(0deg);
-    transform-origin: 80px 30px;
+    transform-origin: 60px 20px;
     filter: grayscale(1) contrast(2);
 }
 
