@@ -7,7 +7,30 @@
     height: 100%;
     object-fit: cover;
     opacity: 0.8;
-    box-shadow: 2px 2px 6px 2px rgba(0,0,0,0.7)
+    box-shadow: 2px 2px 6px 2px rgba(0,0,0,0.7);
+    filter: blur(6px);
+}
+
+.thumbnail {
+    position: relative;
+    animation-duration: 180000ms;
+    animation-name: vinyl-rotate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.vinyl {
+    border: 5px solid #fff;
+    border-radius: 50%;
+}
+
+.albumart {
+    position: absolute;
+    left: 0;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    mix-blend-mode: plus-lighter;
 }
 
 .dock {
@@ -53,6 +76,7 @@
     display: flex;
     flex-direction: column;
     padding-left: 16px;
+    padding-bottom: 8px;
 }
 
 .trackName {
@@ -63,4 +87,13 @@
 .artistName {
     font-weight: 100;
     font-size: 1.5em;
+}
+
+@keyframes vinyl-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
