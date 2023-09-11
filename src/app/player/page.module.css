@@ -13,10 +13,16 @@
 
 .thumbnail {
     position: relative;
-    animation-duration: 180000ms;
-    animation-name: vinyl-rotate;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
+}
+
+.arm {
+    color: transparent;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+    left: 130px;
+    top: -8px;
+    height: 113px;
 }
 
 .vinyl {
@@ -31,6 +37,10 @@
     width: 200px;
     height: 200px;
     mix-blend-mode: plus-lighter;
+    animation-duration: 180000ms;
+    animation-name: vinyl-rotate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
 }
 
 .dock {

@@ -9,6 +9,7 @@ import playIcon from "../../../public/play.png";
 import previousIcon from "../../../public/previous.png";
 import nextIcon from "../../../public/next.png";
 import vinyl from "../../../public/vinyl.png";
+import arm from "../../../public/turntable-png-17.png";
 
 import style from "./page.module.css";
 
@@ -38,6 +39,7 @@ export default function Player() {
         <div className={style.info}>
           <div className={style.thumbnail}>
             <Image className={style.vinyl} alt="vinyl record" src={vinyl} width={200} height={200} />
+            <Image className={style.arm} alt="turn table arm" src={arm} width={200} height={200} />
             <img
               src={
                 playerState.item.album.images.find((img) => img.height === 640)
