@@ -1,14 +1,13 @@
 "use client";
-import { getServerSession } from "next-auth/next";
 import { SessionProvider } from "next-auth/react";
-import { authOptions } from "../../../pages/api/[...nextauth]";
+import { Session } from "next-auth";
 
 type AuthProviderProps = {
   children: React.ReactNode;
+  session: Session;
 };
 
-export async function AuthProvider({ children }: AuthProviderProps) {
-  const session = await getServerSession(authOptions);
+export async function AuthProvider({ children, session }: AuthProviderProps) {
   return (
     <>
       <SessionProvider session={session}>{children}</SessionProvider>

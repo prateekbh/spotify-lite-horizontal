@@ -24,19 +24,28 @@ const firaSansCondensed = Fira_Sans_Condensed({
 
 export default function Player({}: PageProps) {
   const [playerState, setPlayerState] = useState(dummyResponse);
-  const { data: session, status } = useSession()
-  if (status==="unauthenticated") {
-    redirect("/api/signin");
-  }
-  console.log({session});
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/api/signin");  
+    },
+  });
   const togglePlayPause = () => {
     setPlayerState({ ...playerState, is_playing: !playerState.is_playing });
   };
   useEffect(() => {
-    const timer = setInterval(() => {});
-    return () => {
-      clearInterval(timer);
-    };
+    // const timer = setInterval(() => {});
+    // return () => {
+    //   clearInterval(timer);
+    // };
+    console.log("hioooo", session)
+    fetch("https://api.spotify.com/v1/me/player", {
+      headers: {
+        /// @ts-ignore
+        "Authorization": `Bearer ${session.accessToken}`
+      },
+      credentials: "same-origin"
+    })
   }, []);
   return (
     <div>
