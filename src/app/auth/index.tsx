@@ -4,7 +4,7 @@ import { Session } from "next-auth";
 
 type AuthProviderProps = {
   children: React.ReactNode;
-  session: Session;
+  session: Session|null;
 };
 
 export async function AuthProvider({ children, session }: AuthProviderProps) {
