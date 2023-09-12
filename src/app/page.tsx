@@ -27,7 +27,7 @@ export default function Player({}: PageProps) {
   const { data: session } = useSession({
     required: true,
     onUnauthenticated() {
-      redirect("/api/signin");  
+      redirect("/api/auth/signin");  
     },
   });
   const togglePlayPause = () => {

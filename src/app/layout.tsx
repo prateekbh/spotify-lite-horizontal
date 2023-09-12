@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { Fira_Sans } from 'next/font/google'
 import { AuthProvider } from './auth'
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../../pages/api/[...nextauth]";
+import { authOptions } from "../../pages/api/auth/[...nextauth]";
 
 const fira = Fira_Sans({ subsets: ['latin'], weight: "500" })
 
