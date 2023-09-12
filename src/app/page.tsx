@@ -34,18 +34,25 @@ export default function Player({}: PageProps) {
     setPlayerState({ ...playerState, is_playing: !playerState.is_playing });
   };
   useEffect(() => {
-    // const timer = setInterval(() => {});
-    // return () => {
-    //   clearInterval(timer);
-    // };
-    console.log("hioooo", session)
-    fetch("https://api.spotify.com/v1/me/player", {
-      headers: {
-        /// @ts-ignore
-        "Authorization": `Bearer ${session.accessToken}`
-      },
-      credentials: "same-origin"
-    })
+    const timer = setInterval(async () => {
+      /// @ts-ignore
+      const token = session.accessToken
+      if (!!token) {
+        const response = await fetch("https://api.spotify.com/v1/me/player", {
+          headers: {
+            "Authorization": `Bearer ${token}`
+          },
+          credentials: "same-origin"
+        });
+        if (response.ok) {
+          const json = await response.json();  
+          setPlayerState(json);
+        }
+      }
+    }, 2000);
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
   return (
     <div>
