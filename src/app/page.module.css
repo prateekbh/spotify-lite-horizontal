@@ -100,7 +100,7 @@
 }
 
 .trackInfo {
-    justify-content: end;
+    justify-content: flex-end;
     display: flex;
     flex-direction: column;
     padding-left: 32px;

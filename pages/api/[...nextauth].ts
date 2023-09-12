@@ -1,6 +1,7 @@
-import NextAuth from "next-auth"
+import NextAuth, { NextAuthOptions } from "next-auth"
 import SpotifyProvider from "next-auth/providers/spotify"
-export const authOptions = {
+export const authOptions:NextAuthOptions = {
+  secret: "my very secret string",
   // Configure one or more authentication providers
   providers: [
     SpotifyProvider({

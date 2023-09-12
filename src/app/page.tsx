@@ -13,6 +13,8 @@ import vinyl from "../../public/vinyl.png";
 import arm from "../../public/turntable-png-17.png";
 
 import style from "./page.module.css";
+import { PageProps } from "../../.next/types/app/page";
+import { redirect } from "next/navigation";
 
 const firaSansCondensed = Fira_Sans_Condensed({
   subsets: ["latin"],
@@ -20,12 +22,13 @@ const firaSansCondensed = Fira_Sans_Condensed({
   style: "normal",
 });
 
-export default function Player() {
+export default function Player({}: PageProps) {
   const [playerState, setPlayerState] = useState(dummyResponse);
   const { data: session, status } = useSession()
-  console.log({status});
-
-  
+  if (status==="unauthenticated") {
+    redirect("/api/signin");
+  }
+  console.log({session});
   const togglePlayPause = () => {
     setPlayerState({ ...playerState, is_playing: !playerState.is_playing });
   };
