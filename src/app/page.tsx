@@ -44,10 +44,10 @@ export default function Player({}: PageProps) {
           },
           credentials: "same-origin"
         });
-        if (response.ok) {
-          const json = await response.json();  
-          setPlayerState(json);
-        }
+        // if (response.ok) {
+        //   const json = await response.json();  
+        //   setPlayerState(json);
+        // }
       }
     }, 2000);
     return () => {
