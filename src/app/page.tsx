@@ -34,6 +34,8 @@ export default function App() {
       if (response.ok) {
         const json = await response.json();
         setPlayerState(json);
+      } else {
+        alert(response.status)
       }
     }, 2000);
     return () => {
