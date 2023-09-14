@@ -19,12 +19,15 @@ export type PlayerState = {
   isPlaying: boolean;
   track: {
     title: string;
-    artist: string;
   };
   album: {
     cover: string;
     title: string;
   };
+  artist: {
+    title: string;
+    image: string;
+  }
 };
 type PlayerProps = {
   playerState: PlayerState;
@@ -35,7 +38,7 @@ function PlayerComponent({ playerState }: PlayerProps) {
     <div>
       <div>
         <img
-          src="https://i.scdn.co/image/ab67618600001016290e69da72d0ea68cd91c24d"
+          src={playerState.artist.image}
           className={style.artistImage}
         />
       </div>
@@ -72,7 +75,7 @@ function PlayerComponent({ playerState }: PlayerProps) {
             <div
               className={`${style.artistName} ${firaSansCondensed.className}`}
             >
-              {playerState.track.artist}
+              {playerState.artist.title}
             </div>
           </div>
         </div>

@@ -6,17 +6,14 @@ export const authOptions:NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token, user, account, profile }) {
-      console.log({ token, user, account, profile });
       if (!!account) {
         token.accessToken = account.access_token;
       }
-      console.log({ token, user, account, profile });
       return token;
     },
     async session({ session, token, user }) {
       /// @ts-ignore
       session.accessToken = token.accessToken
-      console.log({session})
       return session
     }
   },
