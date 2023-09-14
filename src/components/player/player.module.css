@@ -65,7 +65,7 @@
 .dock {
     position: absolute;
     z-index: 1;
-    bottom: 50px;
+    bottom: 16px;
     left: 50px;
     right: 50px;
 }
