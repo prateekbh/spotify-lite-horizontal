@@ -35,7 +35,7 @@ export default function App() {
         const json = await response.json();
         setPlayerState(json);
       } else if (response.status === 401){
-        redirect("/api/auth/signin");
+        location.href = "/api/auth/signin";
       }
     }, 2000);
     return () => {
