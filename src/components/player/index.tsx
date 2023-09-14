@@ -17,6 +17,7 @@ const firaSansCondensed = Fira_Sans_Condensed({
 
 export type PlayerState = {
   isPlaying: boolean;
+  deviceId: string;
   track: {
     title: string;
   };
@@ -81,6 +82,7 @@ function PlayerComponent({ playerState }: PlayerProps) {
         </div>
         <PlayerControls
           isPlaying={playerState.isPlaying}
+          deviceId={playerState.deviceId}
         />
       </div>
     </div>

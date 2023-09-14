@@ -1,6 +1,6 @@
 export function getSpotifyFetch(token: string) {
   return function (url: RequestInfo, options?: RequestInit) {
-    return fetch(url, {
+    return fetch(`https://api.spotify.com/v1${url}`, {
       ...options,
       headers: {
         ...(options?.headers ?? {}),

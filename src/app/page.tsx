@@ -22,14 +22,10 @@ export default function App() {
   });
   /// @ts-ignore
   const spotifyFetch = getSpotifyFetch(session.accessToken);
-  // const togglePlayPause = () => {
-  //   playerState &&
-  //     setPlayerState({ ...playerState, is_playing: !playerState.is_playing });
-  // };
   useEffect(() => {
     const timer = setInterval(async () => {
       const response = await spotifyFetch(
-        "https://api.spotify.com/v1/me/player"
+        "/me/player"
       );
       if (response.ok) {
         const json = await response.json();
@@ -47,7 +43,7 @@ export default function App() {
       if (!playerState) {
         return;
       }
-      const response = await spotifyFetch(playerState.item.artists[0]?.href);
+      const response = await spotifyFetch(`/artists/${playerState.item.artists[0]?.id}`);
       if (!response.ok) {
         return;
       }
@@ -73,6 +69,7 @@ export default function App() {
         "",
       title: playerState.item.album.name,
     },
+    deviceId: playerState.device.id
   };
   return <Player playerState={state} />;
 }
