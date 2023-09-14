@@ -18,18 +18,27 @@ export function PlayerControls({ isPlaying, deviceId }: ControlProps) {
   });
   /// @ts-ignore
   const spotifyFetch = getSpotifyFetch(session.accessToken);
-  const togglePlayPause = async () => {
-    const action = isPlaying ? "pause": "play";
+  const controlsAction = async (action:string) => {
     await spotifyFetch(`/me/player/${action}`, {
       method: 'PUT',
       body: JSON.stringify({
         device_id: deviceId
       })
     })
+  }
+  const togglePlayPause = async () => {
+    const action = isPlaying ? "pause": "play";
+    await controlsAction(action);
+  };
+  const playNext = async () => {
+    await controlsAction("next");
+  };
+  const playPrevious = async () => {
+    await controlsAction("previous");
   };
   return (
     <div className={style.controls}>
-      <button className={style.prev}>
+      <button className={style.prev} onClick={playPrevious}>
         <img src={previousIcon.src} width="60%" height="60%" />
       </button>
       <button className={style.playpause} onClick={togglePlayPause}>
@@ -39,7 +48,7 @@ export function PlayerControls({ isPlaying, deviceId }: ControlProps) {
           height="60%"
         />
       </button>
-      <button className={style.next}>
+      <button className={style.next} onClick={playNext}>
         <img src={nextIcon.src} width="60%" height="60%" />
       </button>
     </div>
