@@ -6,6 +6,7 @@ import nextIcon from "../../../../public/next.png";
 import style from "./controls.module.css";
 import { useSession } from "next-auth/react";
 import { getSpotifyFetch } from "@/utils/getSpotifyFetch";
+import { redirect } from "next/navigation";
 
 type ControlProps = {
   isPlaying: boolean;
@@ -15,12 +16,20 @@ type ControlProps = {
 export function PlayerControls({ isPlaying, deviceId }: ControlProps) {
   const { data: session } = useSession({
     required: true,
+    onUnauthenticated() {
+      redirect("/api/auth/signin");
+    },
   });
   /// @ts-ignore
-  const spotifyFetch = getSpotifyFetch(session.accessToken);
-  const controlsAction = async (action:string) => {
+  const token = session.accessToken;
+  if (!token) {
+    location.href="/api/auth/signin";
+  }
+  const spotifyFetch = getSpotifyFetch(token);
+  const controlsAction = async (action:'pause'|'play'|'next'|'previous') => {
+    const method = (action==='play' || action === 'pause') ?  'PUT' : 'POST';
     await spotifyFetch(`/me/player/${action}`, {
-      method: 'PUT',
+      method,
       body: JSON.stringify({
         device_id: deviceId
       })

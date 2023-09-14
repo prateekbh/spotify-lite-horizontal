@@ -1,8 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-
-// import style from "./page.module.css";
 import { redirect } from "next/navigation";
 import { Player, PlayerState } from "@/components/player";
 import { SpotifyPlayerState } from "./spotify_player_state";
@@ -21,7 +19,7 @@ export default function App() {
     },
   });
   /// @ts-ignore
-  const spotifyFetch = getSpotifyFetch(session.accessToken);
+  const spotifyFetch = getSpotifyFetch(session?.accessToken);
   useEffect(() => {
     const timer = setInterval(async () => {
       const response = await spotifyFetch(
