@@ -53,12 +53,11 @@ export function PlayerControls({ isPlaying, deviceId }: ControlProps) {
       <button className={style.playpause} onClick={togglePlayPause}>
         <img
           src={isPlaying ? pauseIcon.src : playIcon.src}
-          width="60%"
           height="60%"
         />
       </button>
       <button className={style.next} onClick={playNext}>
-        <img src={nextIcon.src} height="60%" />
+        <img src={nextIcon.src} width="60%" height="60%" />
       </button>
     </div>
   );
