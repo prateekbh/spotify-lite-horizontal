@@ -1,24 +1,27 @@
 .controls {
-    width: 100%;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 32px;
+    z-index: 1;
+    position: absolute;
+    right: 8px;
+    top: 15%;
 }
 
 .playpause, .prev, .next {
     border-radius: 50%;
     border: 0px;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255,255,255,0.5);
     padding: 8px;
     height: 70px;
     width: 70px;
     vertical-align: middle;
 }
 
+.playpause {
+    margin: 0 32px;
+}
+
 .prev, .next {
     background-color: transparent;
-    margin: 0 32px;
     height: 60px;
     width: 60px;
 }

@@ -1,6 +1,6 @@
 import { memo } from "react";
 import Image from "next/image";
-import { Fira_Sans_Condensed } from "next/font/google";
+import { Lato } from "next/font/google";
 import { PlayerControls } from "./controls";
 
 import vinyl from "../../../public/vinyl.png";
@@ -9,7 +9,7 @@ import arm from "../../../public/turntable-png-17.png";
 import style from "./player.module.css";
 
 
-const firaSansCondensed = Fira_Sans_Condensed({
+const lato = Lato({
   subsets: ["latin"],
   weight: "100",
   style: "normal",
@@ -43,6 +43,10 @@ function PlayerComponent({ playerState }: PlayerProps) {
           className={style.artistImage}
         />
       </div>
+      <PlayerControls
+          isPlaying={playerState.isPlaying}
+          deviceId={playerState.deviceId}
+        />
       <div className={style.dock}>
         <div className={style.info}>
           <div className={style.thumbnail}>
@@ -74,16 +78,12 @@ function PlayerComponent({ playerState }: PlayerProps) {
           <div className={style.trackInfo}>
             <div className={style.trackName}>{playerState.track.title}</div>
             <div
-              className={`${style.artistName} ${firaSansCondensed.className}`}
+              className={`${style.artistName} ${lato.className}`}
             >
               {playerState.artist.title}
             </div>
           </div>
         </div>
-        <PlayerControls
-          isPlaying={playerState.isPlaying}
-          deviceId={playerState.deviceId}
-        />
       </div>
     </div>
   );

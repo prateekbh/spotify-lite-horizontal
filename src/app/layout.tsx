@@ -1,12 +1,12 @@
 
 import './globals.css'
 import type { Metadata } from 'next'
-import { Fira_Sans } from 'next/font/google'
+import { Lato } from 'next/font/google'
 import { AuthProvider } from './auth'
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 
-const fira = Fira_Sans({ subsets: ['latin'], weight: "500" })
+const lato = Lato({ subsets: ['latin'], weight: "700" })
 
 export const metadata: Metadata = {
   title: 'Spotify Remote(Taylor\'s Version)',
@@ -24,7 +24,7 @@ export default async function RootLayout({
         <head>
           <link rel="manifest" href="/manifest.json" />
         </head>
-        <body className={fira.className}>
+        <body className={lato.className}>
           <AuthProvider session={session}>
             {children}
           </AuthProvider>
